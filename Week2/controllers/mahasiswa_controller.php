@@ -1,8 +1,8 @@
 <?php
 // Data statis sementara
 $mahasiswa = [
-    ["nim" => "2101001", "nama" => "Agus", "jurusan" => "Informatika"],
-    ["nim" => "2101002", "nama" => "Ikhsan", "jurusan" => "Sistem Informasi"],
+    ["nim" => "10241067", "nama" => "Agus", "jurusan" => "Informatika"],
+    ["nim" => "10241043", "nama" => "Ikhsan", "jurusan" => "Sistem Informasi"],
 ];
 
 // Pastikan $errors selalu tersedia
