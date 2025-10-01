@@ -1,0 +1,115 @@
+<?php
+
+class PatientsController extends Controller
+{
+    private Patient $patient;
+
+    public function __construct()
+    {
+        $this->patient = new Patient();
+    }
+
+    public function index(): void
+    {
+        $page = max(1, (int)($_GET['page'] ?? 1));
+        $q = isset($_GET['q']) ? trim($_GET['q']) : null;
+        $perPage = 10;
+        $offset = ($page - 1) * $perPage;
+
+        $total = $this->patient->countAll($q);
+        $rows = $this->patient->all($perPage, $offset, $q);
+
+        $this->view('patients/index', [
+            'patients' => $rows,
+            'total' => $total,
+            'page' => $page,
+            'perPage' => $perPage,
+            'q' => $q,
+        ]);
+    }
+
+    public function create(): void
+    {
+        $errors = [];
+        $old = ['name' => '', 'gender' => 'M', 'dob' => '', 'phone' => '', 'address' => ''];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $old['name'] = trim($_POST['name'] ?? '');
+            $old['gender'] = ($_POST['gender'] ?? 'M') === 'F' ? 'F' : 'M';
+            $old['dob'] = trim($_POST['dob'] ?? '');
+            $old['phone'] = trim($_POST['phone'] ?? '');
+            $old['address'] = trim($_POST['address'] ?? '');
+
+            // Validasi sederhana
+            if ($old['name'] === '' || strlen($old['name']) < 3 || strlen($old['name']) > 100) {
+                $errors['name'] = 'Nama wajib 3-100 karakter.';
+            }
+            if ($old['dob'] !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $old['dob'])) {
+                $errors['dob'] = 'Format tanggal harus YYYY-MM-DD atau kosong.';
+            }
+            if ($old['phone'] !== '' && !preg_match('/^[\d +\-]{0,20}$/', $old['phone'])) {
+                $errors['phone'] = 'Telepon hanya digit, spasi, +, - (maks 20).';
+            }
+
+            if (empty($errors)) {
+                $this->patient->create($old);
+                $this->flash('success', 'Pasien berhasil ditambahkan.');
+                header('Location: ?c=patients&a=index');
+                exit;
+            }
+        }
+
+        $this->view('patients/create', compact('errors', 'old'));
+    }
+
+    public function edit(): void
+    {
+        $id = (int)($_GET['id'] ?? 0);
+        if ($id <= 0) { http_response_code(400); echo 'Invalid ID'; return; }
+
+        $row = $this->patient->find($id);
+        if (!$row) { http_response_code(404); echo 'Patient not found'; return; }
+
+        $errors = [];
+        $old = $row;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $old['name'] = trim($_POST['name'] ?? $row['name']);
+            $old['gender'] = ($_POST['gender'] ?? $row['gender']) === 'F' ? 'F' : 'M';
+            $old['dob'] = trim($_POST['dob'] ?? ($row['dob'] ?? ''));
+            $old['phone'] = trim($_POST['phone'] ?? ($row['phone'] ?? ''));
+            $old['address'] = trim($_POST['address'] ?? ($row['address'] ?? ''));
+
+            if ($old['name'] === '' || strlen($old['name']) < 3 || strlen($old['name']) > 100) {
+                $errors['name'] = 'Nama wajib 3-100 karakter.';
+            }
+            if ($old['dob'] !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $old['dob'])) {
+                $errors['dob'] = 'Format tanggal harus YYYY-MM-DD atau kosong.';
+            }
+            if ($old['phone'] !== '' && !preg_match('/^[\d +\-]{0,20}$/', $old['phone'])) {
+                $errors['phone'] = 'Telepon hanya digit, spasi, +, - (maks 20).';
+            }
+
+            if (empty($errors)) {
+                $this->patient->update($id, $old);
+                $this->flash('success', 'Data pasien berhasil diperbarui.');
+                header('Location: ?c=patients&a=index');
+                exit;
+            }
+        }
+
+        $this->view('patients/edit', compact('errors', 'old', 'id'));
+    }
+
+    public function delete(): void
+    {
+        $id = (int)($_GET['id'] ?? 0);
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo 'Method Not Allowed'; return; }
+        if ($id <= 0) { http_response_code(400); echo 'Invalid ID'; return; }
+        $ok = $this->patient->delete($id, true);
+        if ($ok) { $this->flash('success', 'Pasien berhasil dihapus.'); }
+        else { $this->flash('error', 'Gagal menghapus pasien.'); }
+        header('Location: ?c=patients&a=index');
+        exit;
+    }
+}
