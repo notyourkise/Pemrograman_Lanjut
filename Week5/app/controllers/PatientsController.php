@@ -2,29 +2,33 @@
 
 class PatientsController extends Controller
 {
-    private Patient $patient;
+    private PatientRepository $repo;
 
     public function __construct()
     {
-        $this->patient = new Patient();
+        $this->repo = new PatientRepository();
     }
 
     public function index(): void
     {
-        $page = max(1, (int)($_GET['page'] ?? 1));
-        $q = isset($_GET['q']) ? trim($_GET['q']) : null;
-        $perPage = 10;
-        $offset = ($page - 1) * $perPage;
+    $page = max(1, (int)($_GET['page'] ?? 1));
+    $q = isset($_GET['q']) ? trim($_GET['q']) : '';
+    $sort = $_GET['sort'] ?? 'id';
+    $dir = $_GET['dir'] ?? 'DESC';
+    $perPage = 10;
 
-        $total = $this->patient->countAll($q);
-        $rows = $this->patient->all($perPage, $offset, $q);
+    $total = $this->repo->count($q);
+    $p = new Paginator($total, $page, $perPage);
+    $rows = $this->repo->search($q, $sort, $dir, $p->perPage, $p->offset());
 
         $this->view('patients/index', [
             'patients' => $rows,
             'total' => $total,
-            'page' => $page,
-            'perPage' => $perPage,
+            'page' => $p->page,
+            'perPage' => $p->perPage,
             'q' => $q,
+            'sort' => $sort,
+            'dir' => $dir,
         ]);
     }
 
@@ -52,7 +56,7 @@ class PatientsController extends Controller
             }
 
             if (empty($errors)) {
-                $this->patient->create($old);
+                $this->repo->create($old);
                 $this->flash('success', 'Pasien berhasil ditambahkan.');
                 header('Location: ?c=patients&a=index');
                 exit;
@@ -67,7 +71,7 @@ class PatientsController extends Controller
         $id = (int)($_GET['id'] ?? 0);
         if ($id <= 0) { http_response_code(400); echo 'Invalid ID'; return; }
 
-        $row = $this->patient->find($id);
+    $row = $this->repo->findById($id);
         if (!$row) { http_response_code(404); echo 'Patient not found'; return; }
 
         $errors = [];
@@ -91,7 +95,7 @@ class PatientsController extends Controller
             }
 
             if (empty($errors)) {
-                $this->patient->update($id, $old);
+                $this->repo->update($id, $old);
                 $this->flash('success', 'Data pasien berhasil diperbarui.');
                 header('Location: ?c=patients&a=index');
                 exit;
@@ -106,7 +110,7 @@ class PatientsController extends Controller
         $id = (int)($_GET['id'] ?? 0);
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo 'Method Not Allowed'; return; }
         if ($id <= 0) { http_response_code(400); echo 'Invalid ID'; return; }
-        $ok = $this->patient->delete($id, true);
+        $ok = $this->repo->delete($id, true);
         if ($ok) { $this->flash('success', 'Pasien berhasil dihapus.'); }
         else { $this->flash('error', 'Gagal menghapus pasien.'); }
         header('Location: ?c=patients&a=index');

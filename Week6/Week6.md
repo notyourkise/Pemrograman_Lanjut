@@ -1,4 +1,45 @@
-# Modul Praktikum 6 — CRUD Relasional (MVC + MySQL Lanjutan)
+# Week 6 — Pondasi Lanjutan (Repository, Paginator, Relasi)
+
+Dokumen ini menjelaskan apa saja cakupan Minggu 6 dan apa yang sengaja ditunda untuk Minggu 7 (Validasi & Sanitasi + CSRF), supaya materi mingguan terjaga rapi dan bertahap.
+
+## Ringkasan
+
+- Tujuan: merapikan arsitektur dari Week5 dan menambah fitur relasi 1–N (Pasien → Janji Temu) agar siap untuk topik keamanan minggu depan.
+- Teknologi: PHP (mysqli), DB yang sama `hospital`, router query string (`?c=...&a=...`).
+
+## Cakupan Minggu 6 (yang tersedia)
+
+- Repository Pattern: `PatientRepository`, `AppointmentRepository` (akses DB terpusat, pakai prepared statements).
+- Paginator: hitung total halaman/offset dan dipakai di listing Pasien & Janji Temu.
+- Flash Message: helper `Flash` untuk pesan sukses/gagal.
+- Relasi 1–N: CRUD Janji Temu (Appointments) terhubung ke Pasien, wajib pilih Dokter.
+- UX/Antarmuka: layout form 2 kolom, input full-width, breadcrumb dapat diklik, sort di tabel Pasien (ID/Nama/DOB).
+- Helper transaksi tersedia (begin/commit/rollback) namun belum dipakai sebagai materi (disiapkan untuk praktik lanjutan).
+
+## Bukan Bagian Minggu 6 (disimpan untuk Minggu 7)
+
+- CSRF Token (generate + verifikasi).
+- Standarisasi sanitasi input terstruktur (wrapper/filter_input terpadu).
+- Uji payload berbahaya (XSS/CSRF) dan dokumentasi mitigasi.
+- Validasi bisnis lanjutan (contoh: deteksi bentrok jadwal per dokter, rate limiting, dsb.).
+
+Dengan demikian, Week 6 hanya menjadi pondasi rapi dan fungsional—tanpa materi keamanan Week 7.
+
+## Cara Menjalankan (Ringkas)
+
+- URL dasar: `http://localhost/MATERI-ASDOS/Week6/public/`
+- Pasien: `?c=patients&a=index`
+- Janji Temu: `?c=appointments&a=index`
+- Pastikan DB `hospital` berisi minimal data `doctors` agar dropdown dokter memiliki pilihan.
+
+## Catatan untuk Praktikum Minggu 7
+
+- Week 6 ini sengaja belum ada CSRF dan sanitasi lanjutan. Pada Week 7, mahasiswa akan:
+  - Menambahkan token CSRF di semua form POST dan memverifikasinya di controller.
+  - Menstandarisasi sanitasi & validasi input (server-side) dengan aturan yang terdokumentasi.
+  - Mencoba payload XSS/CSRF dan menulis laporan uji + mitigasi.
+
+> Jika diperlukan, materi Dokter (CRUD Dokter) dapat ditambahkan di Week 6 sebagai latihan kecil, namun bukan fokus utama. Fokus utama tetap pondasi arsitektur dan relasi 1–N.# Modul Praktikum 6 — CRUD Relasional (MVC + MySQL Lanjutan)
 
 Durasi: 1 × 120 menit • Prasyarat: Minggu 5 (CRUD Pasien + PDO)
 

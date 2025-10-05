@@ -1,0 +1,2 @@
+<?php
+class Flash{public static function add(string $type,string $message):void{if(session_status()===PHP_SESSION_NONE){session_start();}$_SESSION['flash'][]=['type'=>$type,'message'=>$message];}public static function take():array{if(session_status()===PHP_SESSION_NONE){session_start();}$f=$_SESSION['flash']??[];unset($_SESSION['flash']);return $f;}}

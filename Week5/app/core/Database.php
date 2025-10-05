@@ -29,4 +29,23 @@ class Database
         self::$conn = $conn;
         return self::$conn;
     }
+
+    // Transaction helpers for Module 6
+    public static function beginTransaction(): void
+    {
+        $db = self::getConnection();
+        $db->begin_transaction();
+    }
+
+    public static function commit(): void
+    {
+        $db = self::getConnection();
+        $db->commit();
+    }
+
+    public static function rollBack(): void
+    {
+        $db = self::getConnection();
+        $db->rollback();
+    }
 }

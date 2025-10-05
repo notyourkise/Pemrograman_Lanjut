@@ -12,6 +12,7 @@ $a = $_GET['a'] ?? 'index';
 // Map controller name to class
 $controllerMap = [
     'patients' => PatientsController::class,
+    'appointments' => AppointmentsController::class,
 ];
 
 if (!isset($controllerMap[$c])) {

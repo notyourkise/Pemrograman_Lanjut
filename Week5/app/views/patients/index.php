@@ -26,10 +26,10 @@
       <table class="table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nama</th>
+            <th><a href="?c=patients&a=index&sort=id&dir=<?= ($sort==='id' && $dir==='ASC')?'DESC':'ASC' ?>&q=<?= urlencode((string)($q ?? '')) ?>">ID</a></th>
+            <th><a href="?c=patients&a=index&sort=name&dir=<?= ($sort==='name' && $dir==='ASC')?'DESC':'ASC' ?>&q=<?= urlencode((string)($q ?? '')) ?>">Nama</a></th>
             <th>Gender</th>
-            <th>Tgl Lahir</th>
+            <th><a href="?c=patients&a=index&sort=dob&dir=<?= ($sort==='dob' && $dir==='ASC')?'DESC':'ASC' ?>&q=<?= urlencode((string)($q ?? '')) ?>">Tgl Lahir</a></th>
             <th>Telepon</th>
             <th style="width:140px;">Aksi</th>
           </tr>
