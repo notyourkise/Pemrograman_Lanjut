@@ -1,0 +1,284 @@
+/* Week6 styles: copy of Week5 to keep consistent look */
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --muted: #94a3b8;
+  --text: #e5e7eb;
+  --primary: #22c55e;
+  --primary-600: #16a34a;
+  --danger: #ef4444;
+  --border: #1f2937;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+}
+.header {
+  background: #0b1220;
+  border-bottom: 1px solid var(--border);
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.toolbar {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: #0b1220;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover {
+  background: var(--primary-600);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.table th,
+.table td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px;
+  text-align: left;
+}
+.table th {
+  color: var(--muted);
+  font-weight: 600;
+}
+.muted {
+  color: var(--muted);
+}
+.stack {
+  display: grid;
+  gap: 12px;
+}
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field label {
+  color: var(--muted);
+  font-size: 14px;
+}
+input[type="text"],
+input[type="date"],
+input[type="datetime-local"],
+select,
+textarea {
+  background: #0b1220;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 100%;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(90%);
+  opacity: 0.9;
+}
+input[type="date"],
+input[type="datetime-local"] {
+  color-scheme: dark;
+  width: 100%;
+}
+.form {
+  display: grid;
+  gap: 14px;
+}
+.form-group {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 8px 12px;
+  align-items: center;
+}
+.form-group > label {
+  color: var(--muted);
+  font-size: 14px;
+}
+.form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.form-group .error {
+  grid-column: 2 / 3;
+  margin-top: -4px;
+}
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+
+/* Make form stack nicely on small screens */
+@media (max-width: 560px) {
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+  .form-group .error {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Focus styles for better UX */
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2dd36f;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+.error {
+  color: #ffb4b4;
+  font-style: italic;
+  font-size: 13px;
+}
+.grid {
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .grid.cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.footer {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+}
+.searchbar {
+  display: flex;
+  gap: 10px;
+}
+.badge {
+  background: #0b1220;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.breadcrumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.breadcrumb a {
+  color: var(--muted);
+}
+.breadcrumb .sep {
+  opacity: 0.5;
+}
+.alert {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+.alert-success {
+  background: #0d1b14;
+  color: #b7f0ce;
+  border-color: #163d2a;
+}
+.alert-error {
+  background: #2a0f13;
+  color: #ffb4b4;
+  border-color: #3f171d;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modal {
+  width: 520px;
+  max-width: calc(100% - 32px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.modal-header {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.show {
+  display: flex !important;
+}

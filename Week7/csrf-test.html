@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSRF Test - External Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #d32f2f;
+        margin-top: 0;
+      }
+      .warning {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 12px;
+        margin: 15px 0;
+      }
+      .field {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        background: #d32f2f;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #b71c1c;
+      }
+      .success {
+        background: #d4edda;
+        border-left: 4px solid #28a745;
+        padding: 12px;
+        margin: 15px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>⚠️ CSRF Attack Test</h1>
+      <div class="warning">
+        <strong>Peringatan:</strong> Ini adalah form untuk testing CSRF
+        protection. Form ini mencoba menambahkan data pasien tanpa CSRF token
+        yang valid.
+      </div>
+
+      <p><strong>Tujuan Test:</strong></p>
+      <ul>
+        <li>Memastikan aplikasi menolak request POST dari sumber external</li>
+        <li>Memvalidasi bahwa CSRF token wajib ada dan valid</li>
+        <li>Mencegah serangan CSRF dari website berbahaya</li>
+      </ul>
+
+      <hr />
+
+      <h3>Form Attack (Tanpa CSRF Token)</h3>
+      <form
+        method="POST"
+        action="http://localhost/MATERI-ASDOS/Week7/public/?c=patients&a=create"
+      >
+        <div class="field">
+          <label>Nama</label>
+          <input
+            type="text"
+            name="name"
+            value="Hacker - CSRF Attack"
+            required
+          />
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <select name="gender">
+            <option value="M">Laki-Laki</option>
+            <option value="F">Perempuan</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Tanggal Lahir</label>
+          <input type="date" name="dob" value="1990-01-01" />
+        </div>
+        <div class="field">
+          <label>Telepon</label>
+          <input type="text" name="phone" value="+62 812-HACK-CSRF" />
+        </div>
+        <div class="field">
+          <label>Alamat</label>
+          <input
+            type="text"
+            name="address"
+            value="External Website - Testing CSRF"
+          />
+        </div>
+        <button type="submit">🚨 Kirim Attack (Harus Ditolak)</button>
+      </form>
+
+      <div class="success" style="margin-top: 20px">
+        <strong>Hasil yang Diharapkan:</strong><br />
+        ✅ Request ditolak dengan HTTP 403 Forbidden<br />
+        ✅ Pesan: "CSRF token verification failed"<br />
+        ✅ Data TIDAK tersimpan ke database<br />
+        ❌ BUKAN: Data berhasil disimpan (vulnerability!)
+      </div>
+
+      <hr />
+
+      <h3>Cara Testing:</h3>
+      <ol>
+        <li>
+          Pastikan aplikasi Week7 sudah berjalan di
+          <code>http://localhost/MATERI-ASDOS/Week7/public/</code>
+        </li>
+        <li>Klik tombol "Kirim Attack" di atas</li>
+        <li>Perhatikan response dari server</li>
+        <li>Screenshot hasil untuk laporan</li>
+        <li>Cek database - pastikan data tidak tersimpan</li>
+      </ol>
+
+      <h3>Dokumentasi untuk Laporan:</h3>
+      <ul>
+        <li>Screenshot form ini</li>
+        <li>Screenshot error 403 setelah submit</li>
+        <li>Screenshot database (data tidak bertambah)</li>
+      </ul>
+    </div>
+  </body>
+</html>
