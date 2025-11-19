@@ -1,0 +1,87 @@
+/***** Styles minimal untuk aksesibilitas & responsif *****/
+/* Week 3 — CSS lanjutan dasar (variabel, tema terang/gelap sederhana, transisi, fokus aksesibel) */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root {
+	--bg: #ffffff;
+	--bg-alt: #f7f9fc;
+	--text: #1f2329;
+	--muted: #5b6472;
+	--primary: #0a58ca;
+	--primary-accent: #2d7ff6;
+	--border: #d9e0e7;
+	--radius: .65rem;
+	--shadow-sm: 0 2px 4px rgba(0,0,0,.06);
+	--shadow: 0 6px 24px -4px rgba(0,0,0,.08);
+	--gradient: linear-gradient(135deg,#0a58ca,#2d7ff6);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #161b22;
+		--bg-alt: #1f2530;
+		--text: #e6edf3;
+		--muted: #9ea9b5;
+		--border: #2d3642;
+		--shadow-sm: 0 2px 4px rgba(0,0,0,.4);
+		--shadow: 0 6px 24px -4px rgba(0,0,0,.5);
+	}
+}
+
+body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; margin:0; background: var(--bg); color: var(--text); }
+header, main, footer { padding: 1rem; max-width: 960px; margin: 0 auto; }
+nav ul { list-style: none; display: flex; gap: .75rem; padding: 0; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--primary); padding: .4rem .75rem; border-radius: .5rem; font-weight: 500; position: relative; }
+nav a:hover { background: var(--bg-alt); }
+nav a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+img { max-width: 100%; height: auto; border-radius: .5rem; }
+
+/* Skip link terlihat saat fokus */
+.skip-link { position: absolute; left: -999px; top: 0; background: #111; color: #fff; padding: .5rem .75rem; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 1000; }
+
+/* Tata letak sederhana */
+.container { max-width: 960px; margin: 0 auto; padding: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.25rem; }
+.card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; background: var(--bg-alt); box-shadow: var(--shadow-sm); transition: background .3s, transform .25s, box-shadow .3s; }
+.card:hover { background: #fff; transform: translateY(-4px); box-shadow: var(--shadow); }
+footer { border-top: 1px solid var(--border); color: var(--muted); }
+
+/* Headings & text */
+h1,h2,h3 { line-height:1.25; }
+h1 { font-size: clamp(1.9rem, 2.4vw, 2.4rem); background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+h2 { font-size: clamp(1.4rem, 2vw, 1.8rem); margin-top: 1.25rem; }
+h3 { font-size: 1.1rem; margin-top: 1rem; }
+p { margin: .65rem 0; }
+a { color: var(--primary); }
+a:hover { color: var(--primary-accent); }
+a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: .25rem; }
+
+/* Forms enhancements */
+form { display: grid; gap: 1rem; }
+form div { display: grid; gap: .4rem; }
+input[type=text], input[type=email], textarea { padding: .65rem .75rem; border:1px solid var(--border); background: var(--bg-alt); border-radius: .55rem; font: inherit; transition: border-color .25s, background .25s; }
+input[type=text]:focus, input[type=email]:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(10,88,202,.15); }
+button { padding: .65rem 1rem; border: none; border-radius: .55rem; background: var(--gradient); color:#fff; font-weight:600; cursor:pointer; letter-spacing:.25px; box-shadow: var(--shadow-sm); transition: filter .25s, transform .25s; }
+button:hover { filter: brightness(1.08); }
+button:active { transform: translateY(2px); }
+button:focus-visible { outline: 3px solid rgba(45,127,246,.4); outline-offset: 2px; }
+
+/* Lists */
+ul { padding-left: 1.1rem; }
+ul li { margin: .25rem 0; }
+
+/* Utilities */
+.icon { color: var(--primary); margin-right: .35rem; }
+.muted { color: var(--muted); }
+.pill { display:inline-block; padding:.25rem .6rem; background: var(--bg-alt); border:1px solid var(--border); border-radius: 1rem; font-size:.75rem; letter-spacing:.5px; text-transform:uppercase; }
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+	.grid { gap: 1rem; }
+	nav a { padding: .35rem .6rem; }
+	header, main, footer { padding: .85rem; }
+}
+
+/* Icon helpers */
+.icon { color: #0a58ca; margin-right: .35rem; }

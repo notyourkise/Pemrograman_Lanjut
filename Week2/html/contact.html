@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Form kontak dengan label, required, pattern nomor telepon, dan upload resume.">
+  <title>Portofolio - Kontak (Week 2)</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Dx3Zp8ZJ1p2P6ZcYk5IrHn8VnQkQe4ZVt45mLHc31i8Ch+ZvvVv4ZtO77g6uT58nX4q3fS2B+jeCQMwL4JZy7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <h1><i class="fa-solid fa-envelope" aria-hidden="true"></i> Kontak</h1>
+    <nav aria-label="Navigasi utama">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+      <a href="about.html"><i class="fa-solid fa-id-card"></i> Tentang</a>
+      <a href="projects.html"><i class="fa-solid fa-diagram-project"></i> Projek</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Kontak</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+  <h2><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Form Kontak</h2>
+      <form action="#" method="post" autocomplete="on">
+        <fieldset>
+          <legend>Identitas</legend>
+          <div class="row">
+            <label for="nama"><i class="fa-solid fa-user" aria-hidden="true"></i> Nama</label>
+            <input id="nama" name="nama" type="text" required placeholder="Nama lengkap" autocomplete="name">
+          </div>
+          <div class="row">
+            <label for="email"><i class="fa-solid fa-at" aria-hidden="true"></i> Email</label>
+            <input id="email" name="email" type="email" required placeholder="nama@contoh.com" autocomplete="email">
+          </div>
+          <div class="row">
+            <label for="telp"><i class="fa-solid fa-phone" aria-hidden="true"></i> Telepon</label>
+            <input id="telp" name="telp" type="tel" placeholder="08xxxxxxxxxx" pattern="^0[0-9]{9,12}$" autocomplete="tel">
+            <small>Format: mulai 0, 10–13 digit.</small>
+          </div>
+          <div class="row">
+            <label for="resume"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Resume (PDF)</label>
+            <input id="resume" name="resume" type="file" accept="application/pdf">
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Pesan</legend>
+          <div class="row">
+            <label for="topik"><i class="fa-solid fa-tags" aria-hidden="true"></i> Topik</label>
+            <select id="topik" name="topik" required>
+              <option value="">-- Pilih Topik --</option>
+              <option value="kolaborasi">Kolaborasi</option>
+              <option value="freelance">Freelance</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="pesan"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Pesan</label>
+            <textarea id="pesan" name="pesan" rows="4" required placeholder="Tulis pesan Anda..."></textarea>
+          </div>
+        </fieldset>
+        <div class="row">
+          <button type="submit">Kirim</button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer>&copy; 2025 Nama Mahasiswa</footer>
+</body>
+</html>

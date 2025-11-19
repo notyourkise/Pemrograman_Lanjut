@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endforeach; ?>
 </div>
 <div class="box">
-    <h3>5. Form (Opsional)</h3>
+    <h3>5. Form</h3>
     <form method="POST">
         <div>
             <label>NIM: <input name="nim" value="<?= htmlspecialchars($_POST['nim'] ?? '') ?>"></label>

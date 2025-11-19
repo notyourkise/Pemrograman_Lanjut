@@ -5,9 +5,9 @@ use App\Models\Mahasiswa;
 use App\Models\Person; // for static counter
 
 $students = [
-    new Mahasiswa('1','Andi','2301001','Informatika'),
-    new Mahasiswa('2','Budi','2301002','Sistem Informasi'),
-    new Mahasiswa('3','Cici','2301003','Manajemen')
+    new Mahasiswa('1','haikal','10231080','Informatika'),
+    new Mahasiswa('2','aril','10231081','Sistem Informasi'),
+    new Mahasiswa('3','irpan','10231082','teknik lantai')
 ];
 
 ?><!DOCTYPE html>

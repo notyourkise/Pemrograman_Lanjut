@@ -1,0 +1,77 @@
+/*
+	Week 2 — Basic CSS Design
+	Tujuan: memperkenalkan dasar CSS (selector, box model, tipografi, warna, layout, form, tabel)
+	Catatan: gaya dibuat ringan agar fokus pada HTML; ubah variabel warna untuk eksperimen.
+*/
+
+/* ========== Variabel (Custom Properties) ========== */
+:root {
+	--bg: #ffffff;
+	--text: #222222;
+	--muted: #666666;
+	--primary: #0a58ca; /* biru */
+	--primary-100: #eef5ff;
+	--border: #e5e5e5;
+	--radius: .5rem;
+	--shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* ========== Reset ringkas & Box Model ========== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 0; color: var(--text); background: var(--bg); }
+img { max-width: 100%; height: auto; border-radius: .25rem; }
+
+/* ========== Layout dasar ========== */
+header, main, footer { max-width: 960px; margin: 0 auto; padding: 1rem; }
+.container { max-width: 960px; margin: 0 auto; padding: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+
+/* ========== Tipografi ========== */
+h1, h2, h3 { line-height: 1.25; margin: .5rem 0; }
+p { margin: .5rem 0; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ========== Navigasi ========== */
+nav { display: flex; gap: .75rem; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--primary); padding: .25rem .5rem; border-radius: .375rem; }
+nav a:hover { background: var(--primary-100); }
+
+/* ========== Kartu / Panel ========== */
+.card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; background: #fff; box-shadow: var(--shadow); }
+
+/* ========== Tabel ========== */
+table { width: 100%; border-collapse: collapse; margin: .5rem 0; }
+th, td { padding: .5rem .75rem; border: 1px solid var(--border); text-align: left; }
+thead th { background: var(--primary-100); }
+caption { caption-side: top; font-weight: 600; margin-bottom: .25rem; }
+
+/* ========== Form ========== */
+form { display: grid; gap: .75rem; }
+fieldset { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+.row { display: grid; gap: .5rem; }
+label { font-weight: 600; }
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], input[type="date"], input[type="time"], input[type="password"], input[type="file"], select, textarea {
+	padding: .5rem .65rem; border: 1px solid var(--border); border-radius: .375rem; font: inherit; background: #fff;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary-100); border-color: var(--primary); }
+button, input[type="submit"], input[type="reset"] {
+	padding: .5rem .9rem; border: 1px solid var(--primary); background: var(--primary); color: #fff; border-radius: .375rem; cursor: pointer; font: inherit;
+}
+button:hover, input[type="submit"]:hover { filter: brightness(1.05); }
+small { color: var(--muted); }
+
+/* ========== Footer ========== */
+footer { border-top: 1px solid var(--border); color: var(--muted); }
+
+/* ========== Utilities ========== */
+.icon { color: var(--primary); margin-right: .25rem; }
+.muted { color: var(--muted); }
+.center { text-align: center; }
+
+/* ========== Responsif ========== */
+@media (max-width: 600px) {
+	nav { gap: .5rem; }
+	header, main, footer, .container { padding: .75rem; }
+}

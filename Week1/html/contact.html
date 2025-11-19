@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Demo Input HTML (Week 1)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; margin: 0; }
+    header, main, footer { max-width: 920px; margin: 0 auto; padding: 1rem; }
+    form { display: grid; gap: .75rem; }
+    fieldset { border: 1px solid #ddd; border-radius: .5rem; padding: 1rem; }
+    .row { display: grid; gap: .5rem; }
+    label { font-weight: 600; }
+    small { color: #666; }
+  </style>
+  <!-- Catatan: Week 1 adalah DEMO berbagai input. Week 2 akan merapikan menjadi form kontak final. -->
+  <meta name="description" content="Demo berbagai tipe input HTML5: text, email, number, date, range, color, file, checkbox, radio, select, datalist, textarea.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="robots" content="noindex">
+  
+</head>
+<body>
+  <header>
+    <h1>Demo Berbagai Input HTML5</h1>
+    <nav aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a> |
+      <a href="about.html">Tentang</a> |
+      <a href="contact.html">Demo Input</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Contoh Input dengan Label & Atribut Umum</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Data Pribadi</legend>
+          <div class="row">
+            <label for="nama">Nama Lengkap</label>
+            <input id="nama" name="nama" type="text" placeholder="Nama Anda" required autocomplete="name">
+          </div>
+          <div class="row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="nama@contoh.com" required autocomplete="email">
+          </div>
+          <div class="row">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" minlength="6" required>
+            <small>Minimal 6 karakter.</small>
+          </div>
+          <div class="row">
+            <label for="cari">Pencarian (search)</label>
+            <input id="cari" name="cari" type="search" placeholder="Cari sesuatu...">
+          </div>
+          <div class="row">
+            <label for="telp">Telepon</label>
+            <input id="telp" name="telp" type="tel" placeholder="08xxxxxxxxxx" pattern="^0[0-9]{9,12}$" autocomplete="tel">
+            <small>Format: mulai 0, 10–13 digit.</small>
+          </div>
+          <div class="row">
+            <label for="website">Website/Portfolio</label>
+            <input id="website" name="website" type="url" placeholder="https://...">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferensi & Pilihan</legend>
+          <div class="row">
+            <label for="umur">Umur</label>
+            <input id="umur" name="umur" type="number" min="1" max="120" step="1" placeholder="20">
+          <div class="row">
+            <label for="minggu">Minggu Ke</label>
+            <input id="minggu" name="minggu" type="week">
+          </div>
+          <div class="row">
+            <label for="bulan">Bulan Fokus</label>
+            <input id="bulan" name="bulan" type="month">
+          </div>
+          </div>
+          <div class="row">
+            <label for="tgl">Tanggal Lahir</label>
+            <input id="tgl" name="tgl" type="date">
+          </div>
+          <div class="row">
+            <label for="waktu">Waktu Favorit Belajar</label>
+            <input id="waktu" name="waktu" type="time">
+          </div>
+          <div class="row">
+            <label for="warna">Warna Favorit</label>
+            <input id="warna" name="warna" type="color" value="#0a58ca">
+          </div>
+          <div class="row">
+            <label for="volume">Volume Musik Saat Belajar</label>
+            <input id="volume" name="volume" type="range" min="0" max="100" step="5" value="50">
+          </div>
+          <div class="row">
+            <span>Minat</span>
+            <label><input type="checkbox" name="minat[]" value="frontend"> Front-end</label>
+            <label><input type="checkbox" name="minat[]" value="backend"> Back-end</label>
+            <label><input type="checkbox" name="minat[]" value="design"> UI/UX</label>
+          </div>
+          <div class="row">
+            <span>Tingkat</span>
+            <label><input type="radio" name="tingkat" value="pemula" checked> Pemula</label>
+            <label><input type="radio" name="tingkat" value="menengah"> Menengah</label>
+            <label><input type="radio" name="tingkat" value="lanjut"> Lanjut</label>
+          </div>
+          <div class="row">
+            <label for="kota">Kota</label>
+            <select id="kota" name="kota">
+              <option value="">-- Pilih Kota --</option>
+              <option>Bandung</option>
+              <option>Jakarta</option>
+              <option>Surabaya</option>
+              <option>Yogyakarta</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="bahasa">Bahasa Pemrograman Favorit</label>
+            <input id="bahasa" name="bahasa" list="opsi-bahasa" placeholder="Ketik untuk saran">
+            <datalist id="opsi-bahasa">
+              <option value="HTML">
+              <option value="CSS">
+              <option value="JavaScript">
+              <option value="PHP">
+              <option value="Python">
+            </datalist>
+          </div>
+          <div class="row">
+            <label for="resume">Upload Resume (PDF)</label>
+            <input id="resume" name="resume" type="file" accept=".PDF">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tombol</legend>
+          <div class="row">
+            <button type="submit">Kirim</button>
+            <button type="reset">Reset</button>
+            <button type="button" onclick="alert('Ini tombol biasa tanpa submit')">Tombol Biasa</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Pesan</legend>
+          <div class="row">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan Anda"></textarea>
+          </div>
+        </fieldset>
+
+        <input type="hidden" name="utm" value="week1-demo">
+        <div class="row">
+          <button type="submit">Kirim</button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Nama Mahasiswa</p>
+  </footer>
+</body>
+</html>

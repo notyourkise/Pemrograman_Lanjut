@@ -234,7 +234,7 @@ Catatan:
 - Jika nanti butuh cari cepat by `nim`, bisa pertimbangkan associative array (`$map[$nim] = $obj`).
 - Atau naik level ke penyimpanan persistent (database) minggu-minggu berikut.
 
-### 6. (Opsional) Form Tambah Mahasiswa (Masih Memory Saja)
+### 6.Form Tambah Mahasiswa (Masih Memory Saja)
 
 ```php
 <?php
