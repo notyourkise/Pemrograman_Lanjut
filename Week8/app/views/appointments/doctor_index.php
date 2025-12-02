@@ -84,19 +84,29 @@
                                     <td><?= htmlspecialchars($apt->getNotes() ?? '-') ?></td>
                                     <td><?= htmlspecialchars($apt->getCreatedByName() ?? 'Receptionist') ?></td>
                                     <td>
-                                        <div class="btn-group btn-group-sm">
-                                            <form method="POST" action="<?= url('appointments/doctor/approve/' . $apt->getId()) ?>" style="display:inline;">
-                                                <button type="submit" class="btn btn-success" title="Approve">
-                                                    <i class="bi bi-check-circle"></i> Approve
+                                        <?php if ($apt->canDoctorApprove()): ?>
+                                            <div class="btn-group btn-group-sm">
+                                                <form method="POST" action="<?= url('appointments/doctor/approve/' . $apt->getId()) ?>" style="display:inline;">
+                                                    <button type="submit" class="btn btn-success" title="Approve" onclick="return confirm('Approve this appointment?')">
+                                                        <i class="bi bi-check-circle"></i> Approve
+                                                    </button>
+                                                </form>
+                                                <button type="button" 
+                                                        class="btn btn-danger" 
+                                                        onclick="showRejectModal(<?= $apt->getId() ?>, '<?= htmlspecialchars($apt->getPatientName()) ?>')"
+                                                        title="Reject">
+                                                    <i class="bi bi-x-circle"></i> Reject
                                                 </button>
-                                            </form>
-                                            <button type="button" 
-                                                    class="btn btn-danger" 
-                                                    onclick="showRejectModal(<?= $apt->getId() ?>, '<?= htmlspecialchars($apt->getPatientName()) ?>')"
-                                                    title="Reject">
-                                                <i class="bi bi-x-circle"></i> Reject
-                                            </button>
-                                        </div>
+                                            </div>
+                                        <?php else: ?>
+                                            <span class="badge bg-secondary">
+                                                <?php if ($apt->isPast()): ?>
+                                                    Past Appointment
+                                                <?php else: ?>
+                                                    Status: <?= htmlspecialchars($apt->getStatus()) ?>
+                                                <?php endif; ?>
+                                            </span>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="29.0.2">
+  <diagram name="Page-1" id="V0Hj5PpWkPNjYNeR02nV">
+    <mxGraphModel dx="1501" dy="866" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-1" target="GNWyPkdbTPTRt53lE9Cr-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-1" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-2" target="GNWyPkdbTPTRt53lE9Cr-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-2" value="Pengenalan Lingkungan Kerja" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="180" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-4" target="GNWyPkdbTPTRt53lE9Cr-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-4" value="Identifikasi Masalah" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="270" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-5" target="GNWyPkdbTPTRt53lE9Cr-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-5" value="Identifikasi Solusi" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="450" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-6" target="GNWyPkdbTPTRt53lE9Cr-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-6" value="Studi Literatur" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="360" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-10" target="GNWyPkdbTPTRt53lE9Cr-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-10" value="Penyusunan Tugas Khusus dan Penyusunan Laporan" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="630" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-11" target="GNWyPkdbTPTRt53lE9Cr-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-11" value="Pelaksanaan Kegiatan Kerja Praktik" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="540" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-16" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-14" target="GNWyPkdbTPTRt53lE9Cr-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="660" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="600" y="780" />
+              <mxPoint x="600" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-18" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-14" target="GNWyPkdbTPTRt53lE9Cr-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-14" value="&lt;font&gt;Laporan Kerja&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font&gt;Praktik Sudah benar?&lt;/font&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="720" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="GNWyPkdbTPTRt53lE9Cr-17" target="GNWyPkdbTPTRt53lE9Cr-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-17" value="Presentasi Akhir dan Penyelesaian Laporan Kerja Praktik" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="890" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GNWyPkdbTPTRt53lE9Cr-19" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="980" width="160" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

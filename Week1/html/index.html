@@ -1,86 +1,316 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Portofolio Saya - Beranda (Week 1)</title>
-</head>
-<body>
-  <header>
-    <h1>Nama Mahasiswa</h1>
-    <nav aria-label="Navigasi utama">
-      <a href="#hero">Beranda</a> |
-      <a href="about.html">Tentang</a> |
-      <a href="contact.html">Kontak</a>
-      <a href="#Berita">Berita</a>
-    </nav>
-  </header>
-  <main>
-    <section id="hero">
-      <h2>Selamat Datang</h2>
-      <p>Ini adalah halaman portofolio sederhana Week 1.
-        <br>
-        Lengkapi konten Anda di sini.</p>
-      <p>Tambahkan paragraf lain yang menjelaskan minat atau fokus Anda.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portofolio Saya - Week 1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </header>
 
-      <ul>
-        <li>Belajar <span style="color:rgb(225, 76, 7);">HTML</span></li>
-        <li>Membangun <em>Struktur</em></li>
-        <li>Menyiapkan <strong>Konten</strong></li>
-      </ul>
+    <main>
+      <!-- Section Beranda -->
+      <section id="beranda">
+        <h2>Selamat Datang di Portfolio Saya</h2>
+        <p>
+          Halo! Saya <span class="highlight">Rudi Asep Berlian</span>, seorang
+          mahasiswa Teknik Informatika semester 5 yang passionate dalam
+          <strong>Web Development</strong> dan <strong>UI/UX Design</strong>.
+          Saya percaya bahwa teknologi dapat mengubah dunia menjadi lebih baik.
+        </p>
+        <p>
+          Dengan kombinasi <em>kreativitas</em> dan <em>technical skills</em>,
+          saya berkomitmen untuk menciptakan solusi digital yang tidak hanya
+          fungsional, tetapi juga memberikan pengalaman pengguna yang luar
+          biasa.
+        </p>
 
-      <ol>
-        <li>Push GITHUB</li>
-        <li>Deploy</li>
-      </ol>
+        <figure>
+          <img
+            src="https://www.obsessionnews.com/uploads/media/2025/02/03/012-ca7e79.jpeg"
+            alt="Foto profil Rudi Asep Berlian"
+            width="300"
+          />
+          <figcaption>Rudi Asep Berlian - Web Developer</figcaption>
+        </figure>
 
-      <figure>
-        <img src="https://gerbangbanten.co.id/wp-content/uploads/2025/10/image-14.png" alt="Foto profil mahasiswa" width="220">
-        <figcaption>Profil Mahasiswa</figcaption>
-      </figure>
-    </section>
+        <h3>Keahlian Teknis</h3>
+        <ul>
+          <li>
+            <span class="highlight">Frontend Development</span> - HTML5, CSS3,
+            JavaScript
+          </li>
+          <li>
+            <strong>Framework & Library</strong> - React.js, Tailwind CSS,
+            Bootstrap
+          </li>
+          <li><em>Version Control</em> - Git & GitHub untuk kolaborasi tim</li>
+          <li>UI/UX Design - Figma, Adobe XD</li>
+        </ul>
 
-    <section id="Berita">
-      <h2>Berita</h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-        Explicabo iste expedita perferendis eum porro consequatur commodi cupiditate asperiores beatae, alias mollitia tenetur nihil sit natus voluptates, velit accusamus repellat aspernatur.</p>
+        <h3>Pencapaian</h3>
+        <ol>
+          <li>🏆 Juara 2 Web Design Competition 2024</li>
+          <li>📱 Membuat 5+ project web responsif</li>
+          <li>💼 Freelance Web Developer sejak 2023</li>
+          <li>👥 Kontributor aktif di komunitas developer lokal</li>
+        </ol>
+      </section>
 
-      <article>
-        <h3>Manfaat Penggunaan Tag Semantik</h3>
-        <p>Dipublikasikan oleh: asep pada 8 Mei 2025</p>
-        <p>Tag semantik sangat membantu SEO dan aksesibilitas...</p>
-      </article>
+      <!-- Section Tentang -->
+      <section id="tentang">
+        <h2>Tentang Saya</h2>
+        <p>
+          Saya adalah seorang <strong>Web Developer</strong> yang berfokus pada
+          pengembangan aplikasi web modern dan user-friendly. Perjalanan saya di
+          dunia programming dimulai sejak tahun 2022, dan sejak itu saya terus
+          mengasah kemampuan untuk menciptakan solusi digital yang inovatif.
+        </p>
 
-      <article>
-        <h3>Cara Membuat Website dengan HTML5</h3>
-        <p>Dipublikasikan oleh: Siska pada 10 Mei 2025</p>
-        <p>Pengembangan web di era modern sangat bergantung pada struktur semantik...</p>
-      </article>
+        <h3>🎓 Pendidikan</h3>
+        <p>
+          <strong>Universitas Indonesia</strong> - Teknik Informatika (2021 -
+          Sekarang)<br />
+          IPK: 3.75/4.00 | Expected Graduation: 2025<br />
+          Fokus studi: Web Development, Software Engineering, Database
+          Management
+        </p>
 
-      <aside>
-            <h3>Postingan Populer</h3>
-            <ul>
-                <li><a href="#hero">Topik Populer 1</a></li>
-                <li><a href="#hero">Topik Populer 2</a></li>
-            </ul>
-            <p>Iklan Disini</p>
-      </aside>
+        <h3>💻 Teknologi yang Dikuasai</h3>
+        <ul>
+          <li>
+            <strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React.js,
+            Vue.js
+          </li>
+          <li><strong>Styling:</strong> Tailwind CSS, Bootstrap, SASS/SCSS</li>
+          <li>
+            <strong>Backend:</strong> Node.js, PHP, MySQL, MongoDB (Basic)
+          </li>
+          <li><strong>Tools:</strong> Git, GitHub, VS Code, Figma, Postman</li>
+          <li>
+            <strong>Other:</strong> RESTful API, Responsive Design, SEO
+            Optimization
+          </li>
+        </ul>
 
-      <fieldset>
-        <legend>Langganan Berita</legend>
-        <label for="nama">Nama</label>
-        <input id="nama" name="nama" type="text">
-        <br>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email">
-        <br>  
-        <button type="submit">Langganan</button>
-      </fieldset>
+        <h3>🎯 Filosofi Kerja</h3>
+        <p>
+          "<em
+            >Kode yang baik bukan hanya yang berfungsi, tetapi yang mudah
+            dipahami, di-maintain, dan dikembangkan oleh orang lain.</em
+          >" - Saya selalu berkomitmen untuk menulis clean code dan mengikuti
+          best practices dalam setiap project.
+        </p>
 
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Nama Mahasiswa</p>
-  </footer>
-</body>
+        <h3>🚀 Minat & Hobi</h3>
+        <p>
+          Selain coding, saya aktif di komunitas tech lokal, senang berbagi
+          knowledge melalui blog, dan terus belajar teknologi terbaru. Di waktu
+          luang, saya juga menikmati fotografi dan desain grafis yang membantu
+          meningkatkan sense of design dalam UI/UX.
+        </p>
+      </section>
+
+      <!-- Section Kontak -->
+      <section id="kontak">
+        <h2>Mari Terhubung</h2>
+        <p>
+          Saya selalu terbuka untuk peluang baru, kolaborasi project, atau
+          sekadar networking dengan sesama developer. Jangan ragu untuk
+          menghubungi saya melalui form di bawah atau media sosial yang
+          tersedia.
+        </p>
+
+        <h3>📞 Informasi Kontak</h3>
+        <ul>
+          <li><strong>📧 Email:</strong> ahmadrizki.dev@gmail.com</li>
+          <li>
+            <strong>💼 LinkedIn:</strong> linkedin.com/in/ahmad-rizki-pratama
+          </li>
+          <li><strong>🐙 GitHub:</strong> github.com/ahmadrizkipratama</li>
+          <li><strong>🌐 Website:</strong> ahmadrizki.dev</li>
+          <li><strong>📍 Location:</strong> Jakarta, Indonesia</li>
+        </ul>
+
+        <h3>⏰ Availability</h3>
+        <p>Saat ini saya <span class="highlight">OPEN</span> untuk:</p>
+        <ul>
+          <li>✅ Freelance Web Development Projects</li>
+          <li>✅ Part-time Remote Opportunities</li>
+          <li>✅ Collaboration & Open Source Contribution</li>
+          <li>✅ Mentoring & Knowledge Sharing</li>
+        </ul>
+
+        <fieldset>
+          <legend>✉️ Kirim Pesan</legend>
+          <form>
+            <label for="nama">Nama Lengkap</label>
+            <input
+              id="nama"
+              name="nama"
+              type="text"
+              placeholder="b4hl1l"
+              required
+            />
+
+            <label for="email">Email Address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="b4hl1l@email.com"
+              required
+            />
+
+            <label for="subject">Subjek</label>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder="Kolaborasi Project / Pertanyaan / Lainnya"
+              required
+            />
+
+            <label for="pesan">Pesan</label>
+            <input
+              id="pesan"
+              name="pesan"
+              type="text"
+              placeholder="Tulis pesan Anda di sini..."
+              required
+            />
+
+            <button type="submit">Kirim Pesan</button>
+          </form>
+        </fieldset>
+
+        <p
+          style="
+            text-align: center;
+            margin-top: 2rem;
+            font-style: italic;
+            color: #b8960f;
+          "
+        >
+        </p>
+      </section>
+
+      <!-- Section Portfolio -->
+      <section id="portfolio">
+        <h2>Portfolio Project</h2>
+        <p>
+          Berikut adalah beberapa project yang telah saya kerjakan. Setiap
+          project merepresentasikan dedikasi saya dalam menciptakan solusi web
+          yang berkualitas.
+        </p>
+
+        <article>
+          <h3>🌐 E-Commerce Platform - TechStore</h3>
+          <p>
+            Tech Stack: React.js, Node.js, MongoDB | Completed: November 2024
+          </p>
+          <p>
+            Platform e-commerce full-stack untuk penjualan gadget dan
+            elektronik. Fitur utama meliputi product catalog, shopping cart,
+            payment integration, dan admin dashboard. Menggunakan JWT
+            authentication dan RESTful API. Berhasil menangani 1000+ transaksi
+            dalam beta testing.
+          </p>
+        </article>
+
+        <article>
+          <h3>📱 Personal Finance App - MoneyWise</h3>
+          <p>
+            Tech Stack: Vue.js, Firebase, Chart.js | Completed: September 2024
+          </p>
+          <p>
+            Aplikasi web untuk manajemen keuangan pribadi dengan fitur tracking
+            pengeluaran, budget planning, dan visualisasi data keuangan.
+            Implementasi real-time database menggunakan Firebase dan beautiful
+            data visualization dengan Chart.js. UI/UX dirancang dengan prinsip
+            minimalist dan user-friendly.
+          </p>
+        </article>
+
+        <article>
+          <h3>🎨 Portfolio Website Generator</h3>
+          <p>Tech Stack: HTML5, CSS3, JavaScript | Completed: Juli 2024</p>
+          <p>
+            Tool web-based untuk generate portfolio website secara otomatis.
+            User cukup input data melalui form, kemudian sistem akan generate
+            HTML/CSS template yang dapat di-download. Mendukung 5+ template
+            design dan fully responsive. Project ini telah digunakan oleh 200+
+            mahasiswa untuk membuat portfolio mereka.
+          </p>
+        </article>
+
+        <aside>
+          <h3>🏅 Sertifikasi & Penghargaan</h3>
+          <ul>
+            <li>
+              <a href="#portfolio"
+                >✓ Certified Web Developer - Dicoding Indonesia</a
+              >
+            </li>
+            <li>
+              <a href="#portfolio">✓ JavaScript Algorithms - freeCodeCamp</a>
+            </li>
+            <li>
+              <a href="#portfolio">✓ Responsive Web Design - freeCodeCamp</a>
+            </li>
+            <li>
+              <a href="#portfolio"
+                >✓ Best UI/UX Design - Campus Hackathon 2024</a
+              >
+            </li>
+          </ul>
+          <p>
+            <strong>💼 Status:</strong> Open for freelance projects &
+            collaboration!
+          </p>
+        </aside>
+
+        <fieldset>
+          <legend>💌 Tertarik Berkolaborasi?</legend>
+          <form>
+            <label for="nama-project">Nama Anda</label>
+            <input
+              id="nama-project"
+              name="nama"
+              type="text"
+              placeholder="Nama lengkap"
+              required
+            />
+
+            <label for="email-project">Email</label>
+            <input
+              id="email-project"
+              name="email"
+              type="email"
+              placeholder="email@example.com"
+              required
+            />
+
+            <button type="submit">Diskusi Project</button>
+          </form>
+        </fieldset>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Ahmad Rizki Pratama. All Rights Reserved.</p>
+      <p>Dibuat dengan ❤️ menggunakan HTML5 & CSS3 | Designed for Excellence</p>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem">
+        "Code with passion, design with purpose."
+      </p>
+    </footer>
+  </body>
 </html>

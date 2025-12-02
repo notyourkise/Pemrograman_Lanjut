@@ -102,16 +102,30 @@ class AppointmentsController extends Controller
         $user = Auth::getInstance()->user();
         $doctorId = $this->getDoctorIdFromUser($user->getId());
         
+        if (!$doctorId) {
+            Flash::set('error', 'Doctor profile not found. Please contact admin.');
+            $this->redirect(url('appointments/doctor'));
+            return;
+        }
+        
         $appointment = $this->appointmentRepo->findById($id);
         
-        if (!$appointment || $appointment->getDoctorId() != $doctorId) {
+        if (!$appointment) {
             Flash::set('error', 'Appointment not found');
             $this->redirect(url('appointments/doctor'));
+            return;
+        }
+        
+        if ($appointment->getDoctorId() != $doctorId) {
+            Flash::set('error', 'This appointment is not assigned to you');
+            $this->redirect(url('appointments/doctor'));
+            return;
         }
         
         if (!$appointment->canDoctorApprove()) {
-            Flash::set('error', 'Cannot approve this appointment');
+            Flash::set('error', 'Cannot approve this appointment. Current status: ' . $appointment->getStatus());
             $this->redirect(url('appointments/doctor'));
+            return;
         }
         
         if ($this->appointmentRepo->approveByDoctor($id)) {
@@ -133,16 +147,30 @@ class AppointmentsController extends Controller
         $user = Auth::getInstance()->user();
         $doctorId = $this->getDoctorIdFromUser($user->getId());
         
+        if (!$doctorId) {
+            Flash::set('error', 'Doctor profile not found. Please contact admin.');
+            $this->redirect(url('appointments/doctor'));
+            return;
+        }
+        
         $appointment = $this->appointmentRepo->findById($id);
         
-        if (!$appointment || $appointment->getDoctorId() != $doctorId) {
+        if (!$appointment) {
             Flash::set('error', 'Appointment not found');
             $this->redirect(url('appointments/doctor'));
+            return;
+        }
+        
+        if ($appointment->getDoctorId() != $doctorId) {
+            Flash::set('error', 'This appointment is not assigned to you');
+            $this->redirect(url('appointments/doctor'));
+            return;
         }
         
         if (!$appointment->canDoctorApprove()) {
-            Flash::set('error', 'Cannot reject this appointment');
+            Flash::set('error', 'Cannot reject this appointment. Current status: ' . $appointment->getStatus());
             $this->redirect(url('appointments/doctor'));
+            return;
         }
         
         $reason = $_POST['reason'] ?? 'Rejected by doctor';
@@ -166,16 +194,30 @@ class AppointmentsController extends Controller
         $user = Auth::getInstance()->user();
         $doctorId = $this->getDoctorIdFromUser($user->getId());
         
+        if (!$doctorId) {
+            Flash::set('error', 'Doctor profile not found. Please contact admin.');
+            $this->redirect(url('appointments/doctor'));
+            return;
+        }
+        
         $appointment = $this->appointmentRepo->findById($id);
         
-        if (!$appointment || $appointment->getDoctorId() != $doctorId) {
+        if (!$appointment) {
             Flash::set('error', 'Appointment not found');
             $this->redirect(url('appointments/doctor'));
+            return;
+        }
+        
+        if ($appointment->getDoctorId() != $doctorId) {
+            Flash::set('error', 'This appointment is not assigned to you');
+            $this->redirect(url('appointments/doctor'));
+            return;
         }
         
         if (!$appointment->canDoctorRequestCancel()) {
-            Flash::set('error', 'Cannot request cancellation for this appointment');
+            Flash::set('error', 'Cannot request cancellation. Current status: ' . $appointment->getStatus());
             $this->redirect(url('appointments/doctor'));
+            return;
         }
         
         $reason = $_POST['reason'] ?? null;
@@ -183,6 +225,7 @@ class AppointmentsController extends Controller
         if (empty($reason)) {
             Flash::set('error', 'Cancellation reason is required');
             $this->redirect(url('appointments/doctor'));
+            return;
         }
         
         if ($this->appointmentRepo->requestCancellation($id, $user->getId(), $reason)) {
